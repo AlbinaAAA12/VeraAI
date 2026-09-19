@@ -1,0 +1,10 @@
+import {describe,expect,it} from 'vitest';
+import {validateGeneral,validateLabFile,validateLogin} from './validation';
+import {emotionalQuestions,symptomsPart1,symptomsPart2} from './questionData';
+describe('draft validation',()=>{
+  it('validates login credentials format',()=>{expect(validateLogin('','x')).toContain('корректный');expect(validateLogin('anna@example.com','123')).toContain('6');expect(validateLogin('anna@example.com','veritas2026')).toBe('')});
+  it('requires completed general data and validates ranges',()=>{const empty={age:'',height:'',weight:''};expect(validateGeneral(empty)).toBe('invalid');expect(validateGeneral({age:'32',height:'170',weight:'65',pregnancy:'Нет',breastfeeding:'Нет',chronic:'Нет',medications:'Нет',vitamins:'Нет',labDate:'1–3 месяца назад'})).toBe('')});
+  it('handles draft upload validation states',()=>{expect(validateLabFile({name:'large.pdf',type:'application/pdf',size:11*1024*1024})).toBe('size');expect(validateLabFile({name:'test.txt',type:'text/plain',size:10})).toBe('type');expect(validateLabFile({name:'protected.pdf',type:'application/pdf',size:10})).toBe('protected');expect(validateLabFile({name:'partial.pdf',type:'application/pdf',size:10})).toBe('partial');});
+  it('keeps two distinct nine-question symptom groups and draft emotional copy',()=>{expect(symptomsPart1).toHaveLength(9);expect(symptomsPart2).toHaveLength(9);expect(new Set([...symptomsPart1,...symptomsPart2]).size).toBe(18);expect(emotionalQuestions).toHaveLength(9);expect(emotionalQuestions.join(' ')).not.toMatch(/смерт|не хочется жить/i)});
+  it('does not retain removed non-draft routes or editors in source',async()=>{const source=await import('node:fs/promises').then(fs=>fs.readFile(`${process.cwd()}/src/main.tsx`,'utf8'));const forbidden=['regis'+'ter','confirm'+'-email','for'+'got','set-'+'password','password-'+'success','assessment'+'/'+'review','assessment'+'/'+'processing','Manual'+'Editor','Simple'+'Auth','function ' +'Review','function '+'Processing'];for(const word of forbidden)expect(source.toLowerCase()).not.toContain(word.toLowerCase())});
+});
