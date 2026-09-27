@@ -302,3 +302,30 @@ html:has(.modal-backdrop),body:has(.modal-backdrop){overflow:hidden}.result-colu
 .assessment .assessment-nav{margin-top:39px!important}
 .final-assessment-grid .result-bottom .btn{height:36px;min-height:36px;border-radius:12px;font-size:14px;padding:0 16px}
 @media(max-width:850px){.app-main:has(.assessment):not(:has(.final-assessment)){padding-top:28px!important}.auth-form{padding:36px 24px!important}}
+
+/* Figma fidelity corrections */
+.sidebar .logo-icon{width:36px;height:36px;border-radius:4px}
+.sidebar .logo-icon img{width:18px;height:17px;filter:none}
+.metadata-tag{font-size:14px!important;font-weight:400!important;line-height:18px;padding:6px 8px!important;border:0!important;border-radius:8px!important;background:#fc69a0 url('/figma/pink-tag.png') center/cover no-repeat!important;color:#fafafa!important;box-shadow:inset 0 4px 15.3px #fff}
+.latest .latest-tags .badge,.latest-tags .metadata-tag{background:#fc69a0 url('/figma/pink-tag.png') center/cover no-repeat!important;color:#fafafa!important;box-shadow:inset 0 4px 15.3px #fff}
+.latest>.latest-top>div:first-child>.badge{background:#ffe6ef;color:#ad416b;border:0;border-radius:999px;padding:6px 10px;font-size:11px;font-weight:600}
+.icon-button:has(img[src$="icon-more.svg"]){width:32px;height:32px;flex:0 0 32px;border-radius:12px;background:#fafafa}
+.icon-button:has(img[src$="icon-more.svg"]) img{width:16px;height:16px}
+.history-card-row .row-actions .kebab{width:32px;height:32px;flex:0 0 32px;border-radius:12px;background:#fafafa}
+.detail-menu-wrap>.icon-button{width:32px;height:32px;flex:0 0 32px;border-radius:12px;background:#fafafa}
+.detail-menu-wrap>.icon-button img{width:16px;height:16px}
+.trend-svg{display:block;width:382px;height:181px;overflow:visible}
+.trend-line{fill:none;stroke:#fc69a0;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.trend-marker{fill:#fc69a0;stroke:#fff;stroke-width:2}
+.chart-tabs button.active:disabled{color:#fafafa!important;background:#2b2b2b!important}
+.detail-lab-columns .lab-summary-row:first-of-type{border-top:0}
+.draft-result .recommendations{height:182px;min-height:182px;border-radius:20px;padding:20px}
+.draft-result .recommendations h2{font-size:16px;line-height:24px;font-weight:600;margin:0}
+.draft-result .recommendations ol{margin:16px 0 0;padding:0;display:flex;flex-direction:column;gap:12px;line-height:19.6px}
+.draft-result .recommendations li{align-items:center;gap:12px;color:rgba(250,250,250,.8);font-size:14px;line-height:19.6px;font-weight:700}
+.draft-result .recommendations li::before{content:counter(recommendation);width:24px;height:24px;flex:0 0 24px;border-radius:50%;background:rgba(250,250,250,.1);color:#fafafa;font-size:12px;font-weight:400}
+input[type="checkbox"]{appearance:none;-webkit-appearance:none;width:16px;height:16px;min-width:16px;min-height:16px;flex:0 0 16px;margin:0;border:1px solid #2b2b2b;border-radius:4px;background:#fafafa;vertical-align:middle;cursor:pointer}
+input[type="checkbox"]:checked{border-color:#2b2b2b;background:#2b2b2b url('/figma/icon-check.svg') center/16px 16px no-repeat}
+.auth-form .check input[type="checkbox"],.assessment .consent-card input[type="checkbox"],.assessment .checkline input[type="checkbox"]{width:16px;height:16px;min-width:16px;min-height:16px;flex:0 0 16px;margin:0}
+.question-error{margin-top:12px}
+@media(max-width:850px){.draft-result .recommendations{height:auto;min-height:182px}.draft-result .recommendations ol{gap:12px}.trend-svg{width:382px}}
